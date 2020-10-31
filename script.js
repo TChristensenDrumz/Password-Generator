@@ -3,12 +3,12 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  getParameters();
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  if(getParameters() !== false){
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
+    passwordText.value = password;
+  }
 }
 
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "[", "]", "{", "}", "-", "_", "=", "+", "?", "/", "<", ">", ":", ";", ",", ".", "~", " "];
@@ -42,6 +42,10 @@ function getParameters(){
     for(var i = 0; i < numberChar.length; i++){
       generator.push(numberChar[i]);
     }
+  }
+  if(special !== true && lower !== true && upper !== true && number !== true){
+    alert("Unable to generate password");
+    return false;
   }
 }
 
