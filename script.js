@@ -2,12 +2,15 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+// If user selects no parameters, password is not generated
 function writePassword() {
   if(getParameters() !== false){
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
 
-    passwordText.value = password;
+    if(password !== false){
+      passwordText.value = password;
+    }
   }
 }
 
@@ -18,7 +21,11 @@ var numberChar = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 var generator = [];
 
+// Grabs user's parameters
 function getParameters(){
+  for(var i = generator.length - 1; i >= 0; i--){
+    generator.pop(generator[i]);
+  }
   var special = confirm("Would you like special characters? OK = Yes, Cancel = No");
   if(special === true){
     for(var i = 0; i < specialChar.length; i++){
@@ -49,14 +56,17 @@ function getParameters(){
   }
 }
 
+// Generates password
 function generatePassword() {
   var passwordLength = prompt("How long would you like your password to be?", "Number of characters");
   var passGen = "";
   if(passwordLength < 8){
     alert("Password must be at least 8 characters");
+    return false;
   }
   else if(passwordLength > 128){
     alert("Password can not be more than 128 characters");
+    return false;
   }
   else{
     for(var i = 0; i < passwordLength; i++){
