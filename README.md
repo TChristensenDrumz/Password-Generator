@@ -1,6 +1,6 @@
-# Password-HW
+# Password-Generator
 
-This project is a password geneator site intended for users who need to create secure passwords for accounts with sensitive data. Passwords are generated using user inputed criteria (special characters, lowecase characters, uppercase charatcers, and numeric characters) which the site then takes and uses to create a strong password using only the specified criteria.
+This project is a password generator site intended for users who need to create secure passwords for accounts with sensitive data. Passwords are generated using user inputed criteria (special characters, lowecase characters, uppercase charatcers, and numeric characters) which the site then takes and uses to create a strong password using only the specified criteria.
 <br><br>
 
 **Note**: Passwords must be between 8 and 128 characters and at least one criteria must be specified.
